@@ -239,37 +239,38 @@
   a {
     position: relative;
     display: block;
-    color: inherit;
     padding: 0 0.5em 0.5em;
-    transition: color .2s ease;
+    color: inherit;
+    user-select: none;
+    transition: color $header-link-color-transition-duration ease;
 
     &::after {
       content: "";
       position: absolute;
+      right: 0;
       bottom: 0;
-      width: 0;
+      left: 0;
+      width: 100%;
       height: 2px;
       background-color: $c-light;
-      right: 0;
-      transition: width .2s ease;
+      transform-origin: right center;
+      transform: scaleX(0);
+      transition:
+        background-color $header-link-pseudo-after-bg-color-transition-duration ease,
+        transform $header-link-pseudo-after-transform-transition-duration ease;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        left: 0;
-        right: 0;
         background-color: $c-dark;
       }
     }
 
     &.active {
       &::after {
-        width: 100%;
-        right: 0;
+        transform: scaleX(1);
       }
     }
 
@@ -279,10 +280,8 @@
       outline: none;
 
       &::after {
-        right: auto;
-        left: 0;
-        width: 100%;
-        opacity: 1;
+        transform: scaleX(1);
+        transform-origin: left center;
         background-color: $c-purple;
       }
     }

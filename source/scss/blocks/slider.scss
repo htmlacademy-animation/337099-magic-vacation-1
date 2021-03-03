@@ -1,5 +1,3 @@
-
-
 .slider {
   position: relative;
   flex-grow: 1;
@@ -70,14 +68,24 @@
 .swiper-slide-active {
   .slider__item-text {
     transform: translateX(30px);
-    animation: history-slide-text-appearance .3s ease-out .3s forwards;
+    animation:
+      history-slide-text-appearance
+      $history-slide-active-text-animation-duration
+      ease-out
+      $history-slide-active-text-animation-delay
+      forwards;
   }
 }
 
 .swiper-slide-next {
   .slider__item-text {
     transform: translateX(30px);
-    animation: history-slide-text-appearance .3s ease-out .6s forwards;
+    animation:
+      history-slide-text-appearance
+      $history-slide-next-text-animation-duration
+      ease-out
+      $history-slide-next-text-animation-delay
+      forwards;
   }
 }
 
