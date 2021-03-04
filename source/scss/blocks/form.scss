@@ -1,7 +1,22 @@
+.screen {
+  &.active {
+    & .form {
+      animation: form-width $form-answer-animation-duration ease-out forwards;
+    }
+
+    & .form__field {
+      animation: form-input-appearance $form-answer-input-animation-duration ease-out forwards;
+    }
+  }
+}
+
 .form {
   position: relative;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  overflow: hidden;
+  max-width: 41rem;
 }
 
 .form__label {
@@ -30,6 +45,8 @@
 }
 
 .form__field {
+  --form-input-placeholder-opacity: 0;
+
   flex: none;
   margin-right: 3rem;
   padding: 0 5.6rem;
@@ -43,6 +60,13 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  opacity: 0;
+  transform-origin: right center;
+
+  &::placeholder {
+    color: rgba($c-purple, .3);
+    opacity: var(--form-input-placeholder-opacity);
+  }
 
   &:focus {
     border: 1px solid $c-purple;
@@ -144,5 +168,35 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+  }
+}
+
+@keyframes form-width {
+  0% {
+    max-width: 41rem;
+  }
+
+  100% {
+    max-width: 100%;
+  }
+}
+
+@keyframes form-input-appearance {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    --form-input-placeholder-opacity: 0;
+  }
+
+  100% {
+    --form-input-placeholder-opacity: 1;
+
+    opacity: 1;
   }
 }
