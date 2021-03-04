@@ -1,3 +1,12 @@
+.screen {
+  &.active {
+    & .intro__message {
+      animation: intro-message $intro-message-animation-duration ease-out forwards;
+    }
+  }
+}
+
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -95,12 +104,6 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(30px);
-  animation:
-    intro-message
-    $intro-message-animation-duration
-    ease-out
-    $intro-message-animation-delay
-    forwards;
 
   @media (min-width: $stop-scaling) {
     width: 509px;

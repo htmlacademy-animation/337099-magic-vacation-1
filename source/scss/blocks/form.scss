@@ -1,3 +1,15 @@
+.screen {
+  &.active {
+    & .form {
+      animation: form-width $form-answer-animation-duration ease-out forwards;
+    }
+
+    & .form__field {
+      animation: form-input-appearance $form-answer-input-animation-duration ease-out forwards;
+    }
+  }
+}
+
 .form {
   position: relative;
   display: flex;
@@ -5,12 +17,6 @@
   margin-left: auto;
   overflow: hidden;
   max-width: 41rem;
-  animation:
-    form-width
-    $form-answer-animation-duration
-    ease-out
-    $form-answer-animation-delay
-    forwards;
 }
 
 .form__label {
@@ -56,12 +62,6 @@
   outline: none;
   opacity: 0;
   transform-origin: right center;
-  animation:
-    form-input-appearance
-    $form-answer-input-animation-duration
-    ease-out
-    $form-answer-input-animation-delay
-    forwards;
 
   &::placeholder {
     color: rgba($c-purple, .3);

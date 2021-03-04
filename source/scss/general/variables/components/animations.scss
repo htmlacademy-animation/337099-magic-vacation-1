@@ -2,10 +2,6 @@
  * Variables for animations
  */
 
-/* region Common */
-$first-animation-delay: .3s;
-/* endregion Common */
-
 /* region Header */
 $header-link-color-transition-duration: .2s;
 
@@ -42,21 +38,17 @@ $social-link-vk-border-color-transition-delay: $social-link-vk-color-transition-
 
 /* region Intro */
 $intro-message-animation-duration: .3s;
-$intro-message-animation-delay: $first-animation-delay;
 /* endregion Intro */
 
 /* region Slider */
 $history-slide-active-text-animation-duration: .3s;
-$history-slide-active-text-animation-delay: $first-animation-delay;
 
 $history-slide-next-text-animation-duration: $history-slide-active-text-animation-duration;
-$history-slide-next-text-animation-delay: $history-slide-active-text-animation-delay * 2;
+$history-slide-next-text-animation-delay: $history-slide-active-text-animation-duration;
 /* endregion Slider */
 
 /* region Form */
 $form-answer-animation-duration: .5s;
-$form-answer-animation-delay: $first-animation-delay;
 
 $form-answer-input-animation-duration: $form-answer-animation-duration;
-$form-answer-input-animation-delay: $form-answer-animation-delay;
 /* endregion Form */
