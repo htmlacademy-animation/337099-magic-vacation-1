@@ -10280,6 +10280,7 @@ __webpack_require__.r(__webpack_exports__);
 class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
+    this.SCREEN_ANIMATION_DELAY_TIMEOUT = 100;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
@@ -10322,7 +10323,9 @@ class FullPageScroll {
       screen.classList.remove(`active`);
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    this.screenElements[this.activeScreen].classList.add(`active`);
+    setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.add(`active`);
+    }, this.SCREEN_ANIMATION_DELAY_TIMEOUT);
   }
 
   changeActiveMenuItem() {
