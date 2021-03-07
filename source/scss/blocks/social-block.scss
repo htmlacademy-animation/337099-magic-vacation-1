@@ -43,6 +43,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     transform-origin: center center;
+    transform: scale(0, 0);
     transition: transform $social-toggler-pseudo-before-transform-transition-duration;
   }
 
