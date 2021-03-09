@@ -2,6 +2,21 @@
  * Variables for animations
  */
 
+/* region Window Loading */
+$window-load-footer-transition-duration: .5s;
+
+$window-load-header-logo-transition-duration: .3s;
+$window-load-header-logo-transition-delay: $window-load-footer-transition-duration - .1s;
+
+$window-load-header-menu-transition-duration: .4s;
+$window-load-header-menu-transition-delay: $window-load-header-logo-transition-delay + $window-load-header-logo-transition-duration - .1s;
+$window-load-header-menu-item-active-pseudo-after-transition-duration: $window-load-header-menu-transition-duration;
+$window-load-header-menu-item-active-pseudo-after-transition-delay: $window-load-header-menu-transition-delay;
+
+$window-load-social-toggler-pseudo-before-transform-transition-duration: $window-load-header-menu-transition-duration;
+$window-load-social-toggler-pseudo-before-transform-transition-delay: $window-load-header-menu-transition-delay + .1s;
+/* endregion Window Loading */
+
 /* region Header */
 $header-link-color-transition-duration: .2s;
 

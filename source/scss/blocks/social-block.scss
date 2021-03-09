@@ -1,3 +1,11 @@
+.body_loaded {
+  & .social-block__toggler {
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+}
+
 .social-block {
   position: relative;
 
@@ -44,7 +52,7 @@
     border: 2px solid $c-light;
     transform-origin: center center;
     transform: scale(0, 0);
-    transition: transform $social-toggler-pseudo-before-transform-transition-duration;
+    transition: transform $window-load-social-toggler-pseudo-before-transform-transition-duration cubic-bezier(.58, .27, .35, 1.53) $window-load-social-toggler-pseudo-before-transform-transition-delay;
   }
 
   svg {
@@ -59,6 +67,7 @@
     color: $c-purple;
 
     &::before {
+      transition: transform $social-toggler-pseudo-before-transform-transition-duration ease-out;
       transform: scale(1.125, 1.125);
     }
   }
