@@ -10117,11 +10117,7 @@ module.exports = code;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-  const setBodyLoadedClassName = () => {
-    document.body.classList.add(`body_loaded`);
-  };
-
-  window.addEventListener(`load`, setBodyLoadedClassName);
+  window.addEventListener(`load`, () => document.body.classList.add(`body_loaded`));
 });
 
 
