@@ -1,6 +1,6 @@
 .screen {
   &.active {
-    & .intro__message {
+    .intro__message {
       animation: intro-message $intro-message-animation-duration ease-out forwards;
     }
   }

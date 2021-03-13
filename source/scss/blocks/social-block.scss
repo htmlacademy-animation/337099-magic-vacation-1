@@ -1,5 +1,5 @@
 .body_loaded {
-  & .social-block__toggler {
+  .social-block__toggler {
     &::before {
       transform: scale(1, 1);
     }
@@ -13,7 +13,7 @@
     .social-block__list {
       pointer-events: auto;
 
-      & .social-block__link {
+      .social-block__link {
         opacity: 1;
         transform: translateY(0);
       }

@@ -1,10 +1,10 @@
 .body_loaded {
-  & .page-header__logo {
+  .page-header__logo {
     opacity: 1;
     transform: translateX(0);
   }
 
-  & .page-header__menu {
+  .page-header__menu {
     opacity: 1;
 
     & a {
