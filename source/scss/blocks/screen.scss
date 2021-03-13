@@ -6,15 +6,11 @@
 
 .screen {
   position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  z-index: 1;
   overflow: hidden;
-
-  &--hidden {
-    display: none;
-  }
+  min-height: 100vh;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(var(--vh, 1vh) * 100);
@@ -23,24 +19,28 @@
   @media (max-width: $tablet - 1) and (orientation: landscape) {
     height: 100vh;
   }
+
+  &--hidden {
+    display: none;
+  }
 }
 
 .screen__wrapper {
   @include container;
   position: relative;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   z-index: 1;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .screen__disclaimer {
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 1;
 }
 
@@ -50,8 +50,8 @@
   bottom: 0;
   left: 0;
   z-index: 1;
-  color: $c-dark;
   background-color: $c-light;
+  color: $c-dark;
   transition: transform 0.5s cubic-bezier(0.44, 0.91, 0.45, 0.91);
   transform: translateY(100%);
 
@@ -103,11 +103,11 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
   display: none;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
-  z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -142,11 +142,11 @@
   position: absolute;
   top: 0.6rem;
   right: 0.3rem;
+  z-index: 1;
   display: none;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
-  z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -194,25 +194,25 @@
 
 .screen__footer-label {
   margin: 0 0 0.3rem;
-  text-transform: uppercase;
   font-size: 1.6rem;
   line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .screen__footer-date {
   margin: 0;
-  font-family: $font-alt;
   font-weight: 400;
   font-size: 2.4rem;
+  font-family: $font-alt;
   line-height: 0.9;
 }
 
 .screen__footer-note {
   padding: 0.8rem 0;
-  text-transform: uppercase;
-  text-align: center;
   font-size: 1.2rem;
   line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
 
   @media (min-width: $stop-scaling) {
     padding: 8px 0;
@@ -221,18 +221,18 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     padding: 0 0 0 2.5rem;
-    text-transform: none;
-    text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    text-align: left;
+    text-transform: none;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 0 0 0 2.5rem;
-    text-transform: none;
-    text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    text-align: left;
+    text-transform: none;
   }
 
   p {
@@ -244,14 +244,14 @@
 
   svg {
     display: block;
-    margin-right: 1rem;
     width: 1rem;
     height: 1rem;
+    margin-right: 1rem;
 
     @media (min-width: $stop-scaling) {
-      margin-right: 10px;
       width: 10px;
       height: 10px;
+      margin-right: 10px;
     }
 
     @media (max-width: $tablet) and (orientation: portrait) {
@@ -299,13 +299,13 @@
 .screen--story {
   background-color: $c-dark;
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   @media (orientation: portrait) {
-    background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
+    background-size: auto calc(100vh - 13.8rem), 100% 25rem;
   }
 }
 
@@ -318,6 +318,9 @@
   background-color: $c-dark;
 
   &::before {
+    @include retina {
+      background-image: url("../img/sonya@2x.png");
+    }
     content: "";
     position: absolute;
     right: -8.5rem;
@@ -325,12 +328,8 @@
     width: 32.7rem;
     height: 36.9rem;
     background-image: url("../img/sonya.png");
-    background-repeat: no-repeat;
     background-size: contain;
-
-    @include retina {
-      background-image: url("../img/sonya@2x.png");
-    }
+    background-repeat: no-repeat;
 
     @media (min-width: $stop-scaling) {
       right: -85px;
@@ -346,9 +345,9 @@
 
 .screen--result {
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   background-color: $c-dark;
   opacity: 0;
   pointer-events: none;

@@ -1,10 +1,10 @@
 .chat {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  width: 100%;
   margin: 0 auto;
   padding: 0 5.7rem;
-  width: 100%;
 
   @media (min-width: $stop-scaling) {
     padding: 0 57px;
@@ -20,25 +20,25 @@
 }
 
 .chat__body {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 79.8rem;
+  max-height: calc(100vh - 33.9rem);
   margin: 0 auto;
   padding: 0 5.9rem 0;
-  width: 100%;
-  max-height: calc(100vh - 33.9rem);
-  max-width: 79.8rem;
-  overflow-y: auto;
 
   @media (min-width: $stop-scaling) {
-    padding: 0 59px 0;
-    max-height: calc(100vh - 339px);
     max-width: 798px;
+    max-height: calc(100vh - 339px);
+    padding: 0 59px 0;
   }
 
   @media (orientation: portrait) {
-    padding: 0 0 0;
     max-height: calc(var(--vh, 1vh) * 100 - 22.4rem);
+    padding: 0 0 0;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -46,8 +46,8 @@
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    padding: 0;
     max-height: calc(var(--vh, 1vh) * 100 - 16rem);
+    padding: 0;
   }
 }
 
@@ -59,12 +59,12 @@
 }
 
 .chat__message {
-  flex: none;
   display: flex;
+  flex: none;
   margin-bottom: 2rem;
-  text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.2;
+  text-transform: uppercase;
 
   @media (min-width: $stop-scaling) {
     margin-bottom: 20px;
@@ -80,28 +80,28 @@
   }
 
   p {
+    min-width: 17rem;
     margin: 0;
     padding: 1.6rem 5.7rem;
-    min-width: 17rem;
     border-radius: 4rem;
 
     @media (min-width: $stop-scaling) {
-      padding: 16px 57px;
       min-width: 170px;
+      padding: 16px 57px;
       border-radius: 40px;
     }
 
     @media (orientation: portrait) {
-      padding: 1rem 2.5rem;
       min-width: 10rem;
       max-width: calc(100% - 5rem);
+      padding: 1rem 2.5rem;
       border-radius: 2rem;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      padding: 1rem 2.5rem;
       min-width: 10rem;
       max-width: calc(100% - 5rem);
+      padding: 1rem 2.5rem;
       border-radius: 2rem;
     }
   }
@@ -111,8 +111,8 @@
 
     p {
       width: 100%;
-      color: $c-dark;
       background-color: $c-light;
+      color: $c-dark;
       word-break: break-word;
     }
   }
@@ -122,8 +122,8 @@
     text-align: center;
 
     p {
-      color: $c-light;
       background-color: $c-purple;
+      color: $c-light;
       word-break: break-word;
     }
   }
@@ -131,12 +131,12 @@
 
 .chat__placeholder {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 17rem;
   height: 6rem;
-  background-color: $c-purple;
   border-radius: 3rem;
+  background-color: $c-purple;
 
   @media (min-width: $stop-scaling) {
     width: 170px;
@@ -155,26 +155,26 @@
   }
 
   span {
-    margin: 0 0.65rem;
     width: 1rem;
     height: 1rem;
-    background-color: $c-light;
+    margin: 0 0.65rem;
     border-radius: 50%;
+    background-color: $c-light;
 
     @media (min-width: $stop-scaling) {
       margin: 0 6.5px;
     }
 
     @media (orientation: portrait) {
-      margin: 0 0.5rem;
       width: 0.6rem;
       height: 0.6rem;
+      margin: 0 0.5rem;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      margin: 0 0.5rem;
       width: 0.6rem;
       height: 0.6rem;
+      margin: 0 0.5rem;
     }
   }
 

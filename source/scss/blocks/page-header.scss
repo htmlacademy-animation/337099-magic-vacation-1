@@ -10,8 +10,8 @@
     & a {
       &.active {
         &::after {
-          transform-origin: left center;
           transform: scaleX(1);
+          transform-origin: left center;
         }
       }
     }
@@ -21,10 +21,10 @@
 .page-header {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
-  padding: 2.7rem 0;
+  left: 0;
   z-index: 10;
+  padding: 2.7rem 0;
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -49,29 +49,29 @@
 .page-header__logo {
   @include hover;
   position: relative;
-  flex: none;
   top: -0.5rem;
   display: block;
-  padding: 1rem 0;
+  flex: none;
   width: 10rem;
+  padding: 1rem 0;
   color: $c-light;
   opacity: 0;
-  transform: translateX(-100%);
   transition:
     transform 0.3s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.4s,
     opacity 0.3s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.4s;
+  transform: translateX(-100%);
 
   @media (min-width: $stop-scaling) {
     top: -5px;
-    padding: 10px 0;
     width: 113px;
+    padding: 10px 0;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     top: 0;
-    padding: 0.5rem 0;
-    width: 6.8rem;
     z-index: 1;
+    width: 6.8rem;
+    padding: 0.5rem 0;
 
     .page-header--menu-opened & {
       color: $c-dark;
@@ -80,9 +80,9 @@
 
   @media (max-width: $mobile) and (orientation: landscape) {
     top: 0;
-    padding: 0.5rem 0;
-    width: 6.8rem;
     z-index: 1;
+    width: 6.8rem;
+    padding: 0.5rem 0;
 
     .page-header--menu-opened & {
       color: $c-dark;
@@ -99,13 +99,13 @@
 .page-header__toggler {
   @include btn-reset;
   position: relative;
+  z-index: 1;
   display: none;
   width: 2.5rem;
   height: 2.5rem;
-  font-size: 0;
-  background-color: $c-light;
   border-radius: 50%;
-  z-index: 1;
+  background-color: $c-light;
+  font-size: 0;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -140,10 +140,10 @@
     &::after {
       top: 50%;
       left: 50%;
-      transform: translate(-50%) rotate(45deg);
       width: 2.6rem;
       height: 2px;
       box-shadow: none;
+      transform: translate(-50%) rotate(45deg);
     }
 
     &::after {
@@ -159,15 +159,15 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-100%);
+    left: 0;
     flex-direction: column;
     align-items: flex-start;
     padding: 4rem 3.5rem;
-    color: $c-dark;
     background-color: $c-light;
+    color: $c-dark;
+    transform: translateX(-100%);
 
     .page-header--menu-opened & {
       transform: translateX(0);
@@ -177,17 +177,17 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(-100%);
+    left: 0;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem 3.5rem;
-    max-height: calc(var(--vh, 1vh) * 100);
-    color: $c-dark;
-    background-color: $c-light;
     overflow-y: auto;
+    max-height: calc(var(--vh, 1vh) * 100);
+    padding: 2rem 3.5rem;
+    background-color: $c-light;
+    color: $c-dark;
+    transform: translateX(-100%);
 
     .page-header--menu-opened & {
       transform: translateX(0);
@@ -196,12 +196,12 @@
 }
 
 .page-header__menu {
-  font-family: $font-alt;
-  text-transform: uppercase;
+  color: $c-light;
   font-weight: 400;
   font-size: 1.2rem;
+  font-family: $font-alt;
   line-height: 1.0418;
-  color: $c-light;
+  text-transform: uppercase;
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.6s;
 
@@ -211,14 +211,14 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     margin: auto 0;
-    font-size: 2.4rem;
     color: $c-dark;
+    font-size: 2.4rem;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin: auto 0;
-    font-size: 1.4rem;
     color: $c-dark;
+    font-size: 1.4rem;
   }
 
   ul {
@@ -280,11 +280,11 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      transform-origin: right center;
-      transform: scaleX(0);
       transition:
         background-color 0.2s ease,
         transform 0.2s ease;
+      transform: scaleX(0);
+      transform-origin: right center;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         background-color: $c-dark;
@@ -298,8 +298,8 @@
     &.active {
       &::after {
         transition: transform 0.4s ease-out 0.6s;
-        transform-origin: left center;
         transform: scaleX(0);
+        transform-origin: left center;
       }
     }
 
@@ -309,9 +309,9 @@
       outline: none;
 
       &::after {
+        background-color: $c-purple;
         transform: scaleX(1);
         transform-origin: left center;
-        background-color: $c-purple;
       }
     }
   }
@@ -325,12 +325,12 @@
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    margin-left: 0;
     width: 100%;
+    margin-left: 0;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    margin-left: 0;
     width: 100%;
+    margin-left: 0;
   }
 }
