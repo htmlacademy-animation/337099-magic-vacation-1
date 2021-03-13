@@ -29,7 +29,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
-  transition: color $social-toggler-icon-color-transition-duration;
+  transition: color 0.2s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -52,7 +52,7 @@
     border: 2px solid $c-light;
     transform-origin: center center;
     transform: scale(0, 0);
-    transition: transform $window-load-social-toggler-pseudo-before-transform-transition-duration cubic-bezier(.58, .27, .35, 1.53) $window-load-social-toggler-pseudo-before-transform-transition-delay;
+    transition: transform 0.4s cubic-bezier(0.58, 0.27, 0.35, 1.53) 0.7s;
   }
 
   svg {
@@ -67,7 +67,7 @@
     color: $c-purple;
 
     &::before {
-      transition: transform $social-toggler-pseudo-before-transform-transition-duration ease-out;
+      transition: transform 0.2s ease-out;
       transform: scale(1.125, 1.125);
     }
   }
@@ -83,7 +83,6 @@
     & + .social-block__list {
       opacity: 1;
       pointer-events: auto;
-
     }
   }
 
@@ -189,11 +188,11 @@
   border: 2px solid transparent;
   border-radius: 50%;
   transition:
-    opacity $social-link-opacity-transition-duration,
-    transform $social-link-transform-transition-duration,
-    color $social-link-color-transition-duration,
-    background-color $social-link-bg-color-transition-duration,
-    border-color $social-link-bg-color-transition-duration;
+    opacity 0.3s,
+    transform 0.3s,
+    color 0.2s,
+    background-color 0.2s,
+    border-color 0.2s;
   transform: translateY(10px);
 
   @media (min-width: $stop-scaling) {
@@ -247,11 +246,11 @@
 
   &--insta {
     transition-delay:
-      $social-link-instagram-opacity-transition-delay,
-      $social-link-instagram-transform-transition-delay,
-      $social-link-instagram-color-transition-delay,
-      $social-link-instagram-bg-color-transition-delay,
-      $social-link-instagram-border-color-transition-delay;
+      0.1s,
+      0.1s,
+      0s,
+      0s,
+      0s;
 
     svg {
       width: 1.5rem;
@@ -266,11 +265,11 @@
 
   &--vk {
     transition-delay:
-      $social-link-vk-opacity-transition-delay,
-      $social-link-vk-transform-transition-delay,
-      $social-link-vk-color-transition-delay,
-      $social-link-vk-bg-color-transition-delay,
-      $social-link-vk-border-color-transition-delay;
+      0.2s,
+      0.2s,
+      0s,
+      0s,
+      0s;
 
     svg {
       width: 1.7rem;

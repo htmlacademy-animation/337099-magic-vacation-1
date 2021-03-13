@@ -52,7 +52,7 @@
   z-index: 1;
   color: $c-dark;
   background-color: $c-light;
-  transition: transform $window-load-footer-transition-duration cubic-bezier(.44,.91,.45,.91);
+  transition: transform 0.5s cubic-bezier(0.44, 0.91, 0.45, 0.91);
   transform: translateY(100%);
 
   @media (max-width: $tablet) and (orientation: portrait) {

@@ -58,8 +58,8 @@
   opacity: 0;
   transform: translateX(-100%);
   transition:
-    transform $window-load-header-logo-transition-duration cubic-bezier(.44,.91,.45,.91) $window-load-header-logo-transition-delay,
-    opacity $window-load-header-logo-transition-duration cubic-bezier(.44,.91,.45,.91) $window-load-header-logo-transition-delay;
+    transform 0.3s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.4s,
+    opacity 0.3s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.4s;
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -203,7 +203,7 @@
   line-height: 1.0418;
   color: $c-light;
   opacity: 0;
-  transition: opacity $window-load-header-menu-transition-duration cubic-bezier(.44,.91,.45,.91) $window-load-header-menu-transition-delay;
+  transition: opacity 0.4s cubic-bezier(0.44, 0.91, 0.45, 0.91) 0.6s;
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -269,7 +269,7 @@
     padding: 0 0.5em 0.5em;
     color: inherit;
     user-select: none;
-    transition: color $header-link-color-transition-duration ease;
+    transition: color 0.2s ease;
 
     &::after {
       content: "";
@@ -283,8 +283,8 @@
       transform-origin: right center;
       transform: scaleX(0);
       transition:
-        background-color $header-link-pseudo-after-bg-color-transition-duration ease,
-        transform $header-link-pseudo-after-transform-transition-duration ease;
+        background-color 0.2s ease,
+        transform 0.2s ease;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         background-color: $c-dark;
@@ -297,7 +297,7 @@
 
     &.active {
       &::after {
-        transition: transform $window-load-header-menu-item-active-pseudo-after-transition-duration ease-out $window-load-header-menu-item-active-pseudo-after-transition-delay;
+        transition: transform 0.4s ease-out 0.6s;
         transform-origin: left center;
         transform: scaleX(0);
       }

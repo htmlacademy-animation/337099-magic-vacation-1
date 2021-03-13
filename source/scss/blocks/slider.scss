@@ -2,13 +2,13 @@
   &.active {
     .swiper-slide-active {
       .slider__item-text {
-        animation: history-slide-text-appearance $history-slide-active-text-animation-duration ease-out forwards;
+        animation: history-slide-text-appearance 0.3s ease-out forwards;
       }
     }
 
     .swiper-slide-next {
       .slider__item-text {
-        animation: history-slide-text-appearance $history-slide-next-text-animation-duration ease-out $history-slide-next-text-animation-delay forwards;
+        animation: history-slide-text-appearance 0.3s ease-out 0.3s forwards;
       }
     }
   }

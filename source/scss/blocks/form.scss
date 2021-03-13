@@ -1,11 +1,11 @@
 .screen {
   &.active {
     .form {
-      animation: form-width $form-answer-animation-duration ease-out forwards;
+      animation: form-width 0.5s ease-out forwards;
     }
 
     .form__field {
-      animation: form-input-appearance $form-answer-input-animation-duration ease-out forwards;
+      animation: form-input-appearance 0.5s ease-out forwards;
     }
   }
 }
