@@ -5,9 +5,9 @@
 }
 
 @mixin container {
+  width: 100%;
   margin: 0 auto;
   padding: 0 4rem;
-  width: 100%;
 
   @media (min-width: $stop-scaling) {
     padding: 0 40px;
@@ -23,18 +23,18 @@
 }
 
 @mixin list-reset {
-  padding: 0;
   margin: 0;
+  padding: 0;
   list-style: none;
 }
 
 @mixin btn-reset {
-  padding: 0;
   margin: 0;
-  background: none;
+  padding: 0;
   border: none;
-  cursor: pointer;
+  background: none;
   outline: none;
+  cursor: pointer;
 
   &:focus {
     outline: none;

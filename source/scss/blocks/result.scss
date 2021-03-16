@@ -1,9 +1,9 @@
 .result {
-  flex-grow: 1;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  padding: 15rem 5.7rem 6rem;
   width: 100%;
+  padding: 15rem 5.7rem 6rem;
 
   @media (min-width: $stop-scaling) {
     padding: 150px 57px 60px;
@@ -25,18 +25,18 @@
 .result__image {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
+  z-index: -1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  z-index: -1;
+  justify-content: center;
 
   @media (orientation: portrait) {
-    left: -1rem;
     right: -1rem;
+    left: -1rem;
   }
 
   picture {
@@ -47,9 +47,9 @@
 
   img {
     display: block;
+    object-fit: cover;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     object-position: center;
   }
 }
@@ -77,12 +77,12 @@
 
 .result__text {
   margin-bottom: 2rem;
-  text-align: center;
-  font-family: $font-alt;
   font-weight: 400;
   font-size: 4.8rem;
+  font-family: $font-alt;
   line-height: 0.906;
   letter-spacing: -0.01em;
+  text-align: center;
 
   @media (min-width: $stop-scaling) {
     margin-bottom: 20px;
@@ -107,27 +107,27 @@
   @include btn-reset;
   display: flex;
   align-items: center;
-  justify-content: center;
   align-self: center;
-  margin: auto auto 1rem;
+  justify-content: center;
   min-width: 34rem;
-  text-transform: uppercase;
+  margin: auto auto 1rem;
+  color: $c-light;
   font-size: 2.4rem;
   line-height: 1.2;
-  color: $c-light;
+  text-transform: uppercase;
 
   @media (min-width: $stop-scaling) {
-    margin: auto auto 10px;
     min-width: 340px;
+    margin: auto auto 10px;
     font-size: 24px;
   }
 
   @media (orientation: portrait) {
-    margin: auto 0 0;
-    transform: none;
     width: 100%;
     min-width: auto;
+    margin: auto 0 0;
     font-size: 1.6rem;
+    transform: none;
   }
 
   @media (max-width: $tablet) and (orientation: landscape) {
@@ -135,47 +135,47 @@
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    margin: auto 0 0;
     width: 100%;
     min-width: auto;
+    margin: auto 0 0;
     font-size: 1.6rem;
   }
 
   span {
     position: relative;
-    margin-left: 1.5rem;
     width: 4rem;
     height: 4rem;
+    margin-left: 1.5rem;
     color: $c-dark;
 
     @media (min-width: $stop-scaling) {
-      margin-left: 15px;
       width: 40px;
       height: 40px;
+      margin-left: 15px;
     }
 
     &::before {
       @include center;
       content: "";
+      z-index: -1;
       width: 100%;
       height: 100%;
-      background-color: $c-light;
       border: 2px solid $c-light;
       border-radius: 50%;
-      z-index: -1;
+      background-color: $c-light;
     }
   }
 
   svg {
     @include center;
-    margin-left: 0.3rem;
     width: 2.4rem;
     height: 1.9rem;
+    margin-left: 0.3rem;
 
     @media (min-width: $stop-scaling) {
-      margin-left: 3px;
       width: 24px;
       height: 19px;
+      margin-left: 3px;
     }
   }
 
@@ -203,8 +203,8 @@
     span::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
       border-color: $c-purple;
+      background-color: $c-purple;
     }
   }
 }
@@ -234,33 +234,33 @@
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      margin-bottom: 0;
       width: 35rem;
+      margin-bottom: 0;
     }
   }
 }
 
 .result--negative {
   .result__title {
-    margin-top: 9.5rem;
     width: 66.5rem;
     height: 11.3rem;
+    margin-top: 9.5rem;
 
     @media (min-width: $stop-scaling) {
-      margin-top: 95px;
       width: 665px;
       height: 113px;
+      margin-top: 95px;
     }
 
     @media (orientation: portrait) {
-      margin-top: 0;
       width: 28.8rem;
       height: 4.9rem;
+      margin-top: 0;
     }
 
     @media (max-width: $tablet) and (orientation: landscape) {
-      margin-top: 0;
       width: 50rem;
+      margin-top: 0;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {

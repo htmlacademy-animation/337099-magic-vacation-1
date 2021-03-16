@@ -2,14 +2,14 @@
   @include btn-reset;
   position: relative;
   padding: 1.5rem 2.9rem;
-  text-transform: uppercase;
-  text-align: center;
-  font-family: $font-alt;
+  color: $c-dark;
   font-weight: 400;
   font-size: 2.4rem;
+  font-family: $font-alt;
   line-height: 3rem;
-  color: $c-dark;
   letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
 
   @media (min-width: $stop-scaling) {
     padding: 15px 29px;
@@ -31,12 +31,12 @@
   &::before {
     @include center;
     content: "";
+    z-index: -1;
     width: 100%;
     height: 100%;
-    background-color: $c-light;
     border: 2px solid $c-light;
     border-radius: 3.5rem;
-    z-index: -1;
+    background-color: $c-light;
   }
 
   &:hover {
@@ -61,8 +61,8 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
       border-color: $c-purple;
+      background-color: $c-purple;
     }
   }
 }

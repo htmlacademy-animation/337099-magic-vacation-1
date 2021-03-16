@@ -30,17 +30,17 @@ html {
 
 body {
   position: relative;
-  margin: 0;
-  padding: 0;
+  overflow: hidden;
   min-width: 320px;
   min-height: 100vh;
-  font-family: $font;
-  font-size: 1.8rem;
-  line-height: 1.1;
-  font-weight: 600;
-  color: $c-light;
+  margin: 0;
+  padding: 0;
   background-color: $c-dark;
-  overflow: hidden;
+  color: $c-light;
+  font-weight: 600;
+  font-size: 1.8rem;
+  font-family: $font;
+  line-height: 1.1;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -70,17 +70,17 @@ a {
 }
 
 img {
-  height: auto;
-  max-width: 100%;
   vertical-align: top;
+  max-width: 100%;
+  height: auto;
 }
 
 .svg-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
   z-index: -100;
+  opacity: 0;
 }
 
 .hidden {
@@ -89,13 +89,13 @@ img {
 
 .visually-hidden {
   position: absolute;
-  margin: -1px;
-  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   width: 1px;
   height: 1px;
-  white-space: nowrap;
+  margin: -1px;
+  padding: 0;
   border: 0;
+  white-space: nowrap;
   clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
