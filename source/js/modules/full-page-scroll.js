@@ -20,7 +20,7 @@ export default class FullPageScroll {
     this.nextScreen = null;
 
     this.onScrollHandler = this.handleScroll.bind(this);
-    this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.onUrlHashChengedHandler = this.handleWindowPopstate.bind(this);
   }
 
   init() {
@@ -30,21 +30,18 @@ export default class FullPageScroll {
     this.changePageDisplay();
   }
 
-  onUrlHashChanged() {
-    const newIndex = this.screenElementsArray.findIndex((screen) => location.hash.slice(1) === screen.id);
-    this.nextScreen = (newIndex < 0) ? 0 : newIndex;
+  saveNewActiveScreenIndex() {
+    this.activeScreen = this.nextScreen;
+    this.nextScreen = null;
+  }
 
+  changeActiveScreen() {
     if (this.checkIsScreenOverlayNeedToShow()) {
       this.setOverlayActiveStateOn();
     } else {
       this.saveNewActiveScreenIndex();
       this.changePageDisplay();
     }
-  }
-
-  saveNewActiveScreenIndex() {
-    this.activeScreen = this.nextScreen;
-    this.nextScreen = null;
   }
 
   changePageDisplay() {
@@ -66,6 +63,7 @@ export default class FullPageScroll {
 
   changeActiveMenuItem() {
     const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
+
     if (activeItem) {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
       activeItem.classList.add(`active`);
@@ -77,18 +75,27 @@ export default class FullPageScroll {
     const nextScreenName = this.screenElementsArray[this.nextScreen].id;
 
     const isCurrentScreenOverlayShowed = this.screensWithOverlayTransitionObject[activeScreenName];
-    let isNextScreenOverlayShowed = false;
 
-    if (isCurrentScreenOverlayShowed) {
-      isNextScreenOverlayShowed = isCurrentScreenOverlayShowed.includes(nextScreenName);
+    if (!isCurrentScreenOverlayShowed) {
+      return false;
     }
 
-    return isNextScreenOverlayShowed;
+    return isCurrentScreenOverlayShowed.includes(nextScreenName);
   }
 
   setOverlayActiveStateOn() {
     this.screenOverlayElement.addEventListener(`transitionend`, this.handleOverlayTransitionEnd.bind(this), {once: true});
     this.screenOverlayElement.classList.add(`screen__overlay--active`);
+  }
+
+  reCalculateActiveScreenPosition(delta) {
+    let currentScreen = this.activeScreen;
+
+    if (delta > 0) {
+      this.nextScreen = Math.min(this.screenElements.length - 1, ++currentScreen);
+    } else {
+      this.nextScreen = Math.max(0, --currentScreen);
+    }
   }
 
   emitChangeDisplayEvent() {
@@ -103,23 +110,18 @@ export default class FullPageScroll {
     document.body.dispatchEvent(event);
   }
 
-  reCalculateActiveScreenPosition(delta) {
-    let currentScreen = this.activeScreen;
+  handleWindowPopstate() {
+    const newIndex = this.screenElementsArray.findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.nextScreen = (newIndex < 0) ? 0 : newIndex;
 
-    if (delta > 0) {
-      this.nextScreen = Math.min(this.screenElements.length - 1, ++currentScreen);
-    } else {
-      this.nextScreen = Math.max(0, --currentScreen);
-    }
+    this.changeActiveScreen();
   }
 
   handleScroll(evt) {
     this.reCalculateActiveScreenPosition(evt.deltaY);
 
     if (this.activeScreen !== this.nextScreen) {
-      this.checkIsScreenOverlayNeedToShow();
-      this.saveNewActiveScreenIndex();
-      this.changePageDisplay();
+      this.changeActiveScreen();
     }
   }
 
