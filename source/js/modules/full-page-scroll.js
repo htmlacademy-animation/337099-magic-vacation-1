@@ -5,33 +5,43 @@ export default class FullPageScroll {
     this.THROTTLE_TIMEOUT = 2000;
     this.SCREEN_ANIMATION_DELAY_TIMEOUT = 100;
 
+    this.screensWithOverlayTransitionObject = {
+      story: [
+        `prizes`,
+      ],
+    };
+
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
+    this.screenElementsArray = Array.from(this.screenElements);
+    this.screenOverlayElement = document.getElementById(`screen__overlay`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
     this.activeScreen = 0;
-    this.onScrollHandler = this.onScroll.bind(this);
-    this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.nextScreen = null;
+
+    this.onScrollHandler = this.handleScroll.bind(this);
+    this.onUrlHashChengedHandler = this.handleWindowPopstate.bind(this);
   }
 
   init() {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
-    this.onUrlHashChanged();
+    this.changePageDisplay();
   }
 
-  onScroll(evt) {
-    const currentPosition = this.activeScreen;
-    this.reCalculateActiveScreenPosition(evt.deltaY);
-    if (currentPosition !== this.activeScreen) {
+  saveNewActiveScreenIndex() {
+    this.activeScreen = this.nextScreen;
+    this.nextScreen = null;
+  }
+
+  changeActiveScreen() {
+    if (this.checkIsScreenOverlayNeedToShow()) {
+      this.setOverlayActiveStateOn();
+    } else {
+      this.saveNewActiveScreenIndex();
       this.changePageDisplay();
     }
-  }
-
-  onUrlHashChanged() {
-    const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
-    this.activeScreen = (newIndex < 0) ? 0 : newIndex;
-    this.changePageDisplay();
   }
 
   changePageDisplay() {
@@ -53,9 +63,38 @@ export default class FullPageScroll {
 
   changeActiveMenuItem() {
     const activeItem = Array.from(this.menuElements).find((item) => item.dataset.href === this.screenElements[this.activeScreen].id);
+
     if (activeItem) {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
       activeItem.classList.add(`active`);
+    }
+  }
+
+  checkIsScreenOverlayNeedToShow() {
+    const activeScreenName = this.screenElementsArray[this.activeScreen].id;
+    const nextScreenName = this.screenElementsArray[this.nextScreen].id;
+
+    const isCurrentScreenOverlayShowed = this.screensWithOverlayTransitionObject[activeScreenName];
+
+    if (!isCurrentScreenOverlayShowed) {
+      return false;
+    }
+
+    return isCurrentScreenOverlayShowed.includes(nextScreenName);
+  }
+
+  setOverlayActiveStateOn() {
+    this.screenOverlayElement.addEventListener(`transitionend`, this.handleOverlayTransitionEnd.bind(this), {once: true});
+    this.screenOverlayElement.classList.add(`screen__overlay--active`);
+  }
+
+  reCalculateActiveScreenPosition(delta) {
+    let currentScreen = this.activeScreen;
+
+    if (delta > 0) {
+      this.nextScreen = Math.min(this.screenElements.length - 1, ++currentScreen);
+    } else {
+      this.nextScreen = Math.max(0, --currentScreen);
     }
   }
 
@@ -71,11 +110,25 @@ export default class FullPageScroll {
     document.body.dispatchEvent(event);
   }
 
-  reCalculateActiveScreenPosition(delta) {
-    if (delta > 0) {
-      this.activeScreen = Math.min(this.screenElements.length - 1, ++this.activeScreen);
-    } else {
-      this.activeScreen = Math.max(0, --this.activeScreen);
+  handleWindowPopstate() {
+    const newIndex = this.screenElementsArray.findIndex((screen) => location.hash.slice(1) === screen.id);
+    this.nextScreen = (newIndex < 0) ? 0 : newIndex;
+
+    this.changeActiveScreen();
+  }
+
+  handleScroll(evt) {
+    this.reCalculateActiveScreenPosition(evt.deltaY);
+
+    if (this.activeScreen !== this.nextScreen) {
+      this.changeActiveScreen();
     }
+  }
+
+  handleOverlayTransitionEnd() {
+    this.saveNewActiveScreenIndex();
+    this.changePageDisplay();
+
+    this.screenOverlayElement.classList.remove(`screen__overlay--active`);
   }
 }
