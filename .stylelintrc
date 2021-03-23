@@ -4,6 +4,7 @@
     "stylelint-order"
   ],
   "rules": {
+    "ignoreAtRules": ["for"],
     "declaration-no-important": true,
     "indentation": [
       2,
