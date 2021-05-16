@@ -1,0 +1,20 @@
+.text__word {
+  padding-top: .2em;
+  margin: -0.2em 5px 0;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+
+  & .text__letter {
+    display: inline-block;
+    transform: translate3d(0, 1em, 0);
+  }
+}
+
+.active_anim {
+  & .text__word {
+    & .text__letter {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

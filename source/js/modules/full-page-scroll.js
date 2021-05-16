@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import accentTypographyInit from "../helpers/accent-typography-list";
 
 export default class FullPageScroll {
   constructor() {
@@ -48,6 +49,7 @@ export default class FullPageScroll {
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    accentTypographyInit();
   }
 
   changeVisibilityDisplay() {
