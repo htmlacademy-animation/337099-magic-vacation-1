@@ -186,3 +186,41 @@
 .chat__footer {
   margin-top: auto;
 }
+
+.form--result {
+  animation: form-width .6s ease-out .6s forwards;
+
+  & .form__field {
+    animation: form-input-appearance .6s ease-out .6s forwards;
+  }
+}
+
+@keyframes form-width {
+  0% {
+    max-width: 41rem;
+  }
+
+  100% {
+    max-width: 100%;
+  }
+}
+
+@keyframes form-input-appearance {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    --form-input-placeholder-opacity: 0;
+  }
+
+  100% {
+    --form-input-placeholder-opacity: 1;
+
+    opacity: 1;
+  }
+}
